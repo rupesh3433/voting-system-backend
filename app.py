@@ -635,7 +635,7 @@ def latest_votes(election_id):
         return jsonify({"error": "Failed to fetch vote counts", "detail": str(e)}), 500
 
 # Health check endpoint
-@app.route("/api/health", methods=["GET"])
+@app.route("/health", methods=["GET"])
 def health_check():
     return jsonify({"status": "healthy", "database_connected": session is not None}), 200
 
