@@ -11,11 +11,13 @@ Flask-Cors==5.0.0
 geomet==0.2.1.post1
 gevent==24.2.1
 greenlet==3.1.1
+gunicorn==23.0.0
 importlib_metadata==8.5.0
 itsdangerous==2.2.0
 Jinja2==3.1.6
 jmespath==1.0.1
 MarkupSafe==2.1.5
+packaging==25.0
 pycparser==2.23
 PyJWT==2.9.0
 python-dateutil==2.9.0.post0
