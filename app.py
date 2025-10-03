@@ -21,7 +21,7 @@ load_dotenv()
 
 # ---------------- Flask App ----------------
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "https://electbyvote.vercel.app"}}, supports_credentials=True)
 
 # ---------------- Connect to Astra DB ----------------
 session = None
@@ -635,9 +635,13 @@ def latest_votes(election_id):
         return jsonify({"error": "Failed to fetch vote counts", "detail": str(e)}), 500
 
 # Health check endpoint
-@app.route("/health", methods=["GET"])
+@app.route("/api/health", methods=["GET"])
 def health_check():
     return jsonify({"status": "healthy", "database_connected": session is not None}), 200
+
+@app.route("/", methods=["GET"])
+def root():
+    return jsonify({"status": "ok"}), 200
 
 # ---------------- Run App ----------------
 if __name__ == "__main__":
