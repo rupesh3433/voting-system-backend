@@ -640,8 +640,8 @@ def health_check():
     return jsonify({"status": "healthy", "database_connected": session is not None}), 200
 
 @app.route("/", methods=["GET"])
-def root():
-    return jsonify({"status": "ok"}), 200
+def health():
+    return jsonify({"status": "healthy", "database_connected": session is not None}), 200
 
 # ---------------- Run App ----------------
 if __name__ == "__main__":
